@@ -1,0 +1,38 @@
+<template>
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="100%"
+    height="100%"
+>
+    <flow-arrow
+        v-for="arrow of arrows"
+        :key="arrow"
+        :arrow="arrow"
+    />
+</svg>
+</template>
+
+<script>
+import FlowArrow from './FlowArrow'
+
+export default {
+    components: {
+        FlowArrow
+    },
+    computed: {
+        arrows(){
+            return this.$store.state.arrows;
+        }
+    }
+}
+</script>
+
+<style>
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, .4));
+}
+
+</style>
