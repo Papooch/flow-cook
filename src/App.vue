@@ -49,8 +49,12 @@ export default {
 }
 
 /** debug */
+table {
+    z-index: 100;
+}
+
 table,
 table td {
-    /* border: solid black 1px; */
+    border: solid black 1px;
 }
 </style>

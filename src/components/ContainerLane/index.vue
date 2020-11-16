@@ -7,7 +7,13 @@
             :eventIndex="index"
             :laneIndex="laneIndex"
             :hue="lane.hue"
+            :ref="'gk-event-ref-' + index"
         />
+        <button
+            @click="recomputeBoundingBoxes"
+        >
+            recalc
+        </button>
     </tr>
 </template>
 
@@ -20,6 +26,13 @@ export default {
     components: {
         LaneEvent
     },
+    methods: {
+        recomputeBoundingBoxes(){
+            Object.keys(this.$refs).forEach(key=>{
+                this.$refs[key].recomputeBoundingBox();
+            });
+        }
+    }
 }
 </script>
 

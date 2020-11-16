@@ -94,15 +94,6 @@ export default createStore({
         getLaneHue: (state) => (laneIndex) => {
             return state.recipe.lanes[laneIndex].hue;
         },
-        getBBox: (state) => (laneIndex, eventIndex) => {
-            // console.log(laneIndex, eventIndex);
-            // console.log(state.recipe.lanes[laneIndex].hue);
-            // console.log(state.recipe.lanes[laneIndex].events[eventIndex].bBox)
-            return {
-                hue: state.recipe.lanes[laneIndex].hue,
-                bBox: state.recipe.lanes[laneIndex].events[eventIndex]?.bBox
-            };
-        }
     },
     modules: {
     }

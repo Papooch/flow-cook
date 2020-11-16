@@ -14,20 +14,20 @@
                 points="0 0, 5 2.5, 0 5"
             />
         </marker>
-    </defs>¨
+    </defs>
 
     <line
-        v-if="from && to"
-        :x1="xFrom"
-        :y1="yFrom"
-        :x2="xTo"
-        :y2="yTo"
+        v-if="fromTo"
+        :x1="fromTo.xFrom"
+        :y1="fromTo.yFrom"
+        :x2="fromTo.xTo"
+        :y2="fromTo.yTo"
         :stroke="colorBase"
         stroke-linecap="round"
         :stroke-dasharray=" dotted ? '0,6' : ''"
         stroke-width="3" :marker-end="`url(#arrowhead${hue})`"
-        @click="recomputeCoordinates"
     />
+    {{ fromBBox }}
 </g>
 </template>
 
@@ -37,50 +37,44 @@ import { BaseColor } from '../../mixins/colors.js'
 export default {
     props: ["arrow"],
     data: ()=>({
-        dotted: false,
-        hue: 0,
         headSize: 5,
-        vertical: false,
         x1: 0,
         x2: 1,
         y1: 0,
         y2: 1,
     }),
     computed: {
-        from(){return this.$store.getters.getBBox(...this.arrow.from)},
-        to(){return this.$store.getters.getBBox(...this.arrow.to)},
-        xFrom(){return this.x1},
-        yFrom(){return this.y1},
-        xTo(){return this.x2 - this.headSize * !this.vertical},
-        yTo(){return this.y2 - this.headSize * this.vertical},
-    },
-    methods: {
-        recomputeCoordinates(){
-            // console.log("arrow recomputing");
-            if (!this.from?.bBox || !this.to?.bBox) return;
-            // console.log(this.from);
-            this.hue = this.from.hue;
-            if(this.vertical){
-                this.x1 = this.from.bBox?.xMiddle;
-                this.x2 = this.to.bBox?.xMiddle;
-                this.y1 = this.from.bBox?.bottom;
-                this.y2 = this.to.bBox?.top;
-            }else{
-                this.x1 = this.from.bBox?.right;
-                this.x2 = this.to.bBox?.left;
-                this.y1 = this.from.bBox?.yMiddle;
-                this.y2 = this.to.bBox?.yMiddle;
+        dotted(){
+            return this.arrow.dotted || false;
+        },
+        vertical(){
+            return this.arrow.vertical || false;
+        },
+        hue(){
+            return this.$store.state.recipe.lanes[this.arrow.from[0]].hue;
+        },
+        fromBBox(){
+            return this.$store.state.recipe.lanes[this.arrow.from[0]].events[this.arrow.from[1]]?.bBox;
+        },
+        toBBox(){
+            return this.$store.state.recipe.lanes[this.arrow.to[0]].events[this.arrow.to[1]]?.bBox;
+        },
+        fromTo(){
+            const fb = this.fromBBox;
+            const tb = this.toBBox;
+            if (!fb || !tb) {
+                return false
             }
-        }
+            return {
+                xFrom: this.vertical ? fb.xMiddle : fb.right,
+                yFrom: this.vertical ? fb.bottom : fb.yMiddle,
+                xTo: this.vertical ? tb.xMiddle : tb.left - 5,
+                yTo: this.vertical ? tb.top - 5: tb.yMiddle
+            } 
+        },
     },
     mixins: [ BaseColor ],
-    created(){
-        this.dotted = this.arrow.dotted || false;
-        this.vertical = this.arrow.vertical || false;
-        this.$nextTick(
-            this.recomputeCoordinates
-        )
-    }
+
 }
 </script>
 

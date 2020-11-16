@@ -5,9 +5,10 @@
     height="100%"
 >
     <flow-arrow
-        v-for="arrow of arrows"
+        v-for="(arrow, index) of arrows"
         :key="arrow"
         :arrow="arrow"
+        :ref="'arrow-ref-' + index"
     />
 </svg>
 </template>
@@ -23,6 +24,9 @@ export default {
         arrows(){
             return this.$store.state.arrows;
         }
+    },
+    methods: {
+
     }
 }
 </script>
@@ -33,6 +37,8 @@ svg {
     left: 0;
     top: 0;
     filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, .4));
+    background-color: rgba(0, 0, 0, .4);
+    z-index: -1
 }
 
 </style>
