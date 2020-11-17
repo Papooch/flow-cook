@@ -17,6 +17,7 @@
 import FlowArrow from './FlowArrow'
 
 export default {
+    name: "FlowArrows",
     components: {
         FlowArrow
     },
@@ -34,10 +35,11 @@ export default {
 <style>
 svg {
     position: absolute;
+    width: 100%;
     left: 0;
     top: 0;
     filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, .4));
-    background-color: rgba(0, 0, 0, .4);
+    /* background-color: rgba(0, 0, 0, .4); */
     z-index: -1
 }
 

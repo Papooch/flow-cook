@@ -3,7 +3,7 @@
     class="gk-lane-item gk-start"
     :style="`background-color:${colorBase}`"
 >
-    {{ event.text }}
+    {{ item.text }}
 </div>
 </template>
 
@@ -11,8 +11,8 @@
 import { BaseColor } from '../../mixins/colors.js'
 
 export default {
-    name: "EventStart",
-    props: ["event", "hue"],
+    name: "ItemStart",
+    props: ["item", "hue"],
     data: ()=>({
     }),
     mixins: [
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style>
-.gk-start {
+.gk-lane-item.gk-start {
     font-size: 1.2em;
     padding: .8em 2em;
     color: white;

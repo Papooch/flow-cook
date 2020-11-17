@@ -15,8 +15,8 @@ import { BaseColor, LighterColor } from '../../mixins/colors.js'
 import { computeColor } from '../../js/common.js'
 
 export default {
-    name: "LaneAdd",
-    props: ["event", "hue"],
+    name: "ItemAdd",
+    props: ["item", "hue"],
     data: ()=>({
         colorFrom: null
     }),
@@ -25,10 +25,10 @@ export default {
         LighterColor
     ],
     created(){
-        if (this.event?.from != undefined) {
-            // console.log("IS FROM " + this.event.from);
+        if (this.item?.from != undefined) {
+            // console.log("IS FROM " + this.item.from);
             this.colorFrom = computeColor(
-                this.$store.getters.getLaneHue(this.event.from),
+                this.$store.getters.getLaneHue(this.item.from),
                 100,
                 90
             )

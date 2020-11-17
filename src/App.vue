@@ -1,30 +1,15 @@
 <template>
-    <flow-arrows/>
-    <table>
-        <container-lane
-            v-for="(lane, index) of recipe.lanes"
-            :key="lane.name"
-            :lane="lane"
-            :laneIndex="index"
-        />
-    </table>
+    <recipe-container/>
 </template>
 
 <script>
-import ContainerLane from './components/ContainerLane'
-import FlowArrows from './components/FlowArrows'
+import RecipeContainer from './components/RecipeContainer'
 
 export default {
     name: 'App',
     components: {
-        ContainerLane,
-        FlowArrows
+        RecipeContainer
     },
-    computed: {
-        recipe(){
-            return this.$store.state.recipe
-        }
-    }
 }
 </script>
 
@@ -46,15 +31,5 @@ export default {
 
 #app * {
     box-sizing: border-box;
-}
-
-/** debug */
-table {
-    z-index: 100;
-}
-
-table,
-table td {
-    border: solid black 1px;
 }
 </style>

@@ -2,7 +2,7 @@ export default {
     lanes: [
         {
             hue: 0,
-            events: [
+            items: [
                 {
                     type: "start",
                     text: "Mísa",
@@ -39,7 +39,7 @@ export default {
         },
         {
             hue: 200,
-            events: [
+            items: [
                 {
                     type: "start",
                     text: "Pánev",
@@ -89,7 +89,7 @@ export default {
         },
         {
             hue: 100,
-            events: [
+            items: [
                 {
                     type: "start",
                     text: "Talíř",

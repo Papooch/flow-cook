@@ -54,10 +54,10 @@ export default {
             return this.$store.state.recipe.lanes[this.arrow.from[0]].hue;
         },
         fromBBox(){
-            return this.$store.state.recipe.lanes[this.arrow.from[0]].events[this.arrow.from[1]]?.bBox;
+            return this.$store.getters.getBBox(...this.arrow.from);
         },
         toBBox(){
-            return this.$store.state.recipe.lanes[this.arrow.to[0]].events[this.arrow.to[1]]?.bBox;
+             return this.$store.getters.getBBox(...this.arrow.to);
         },
         fromTo(){
             const fb = this.fromBBox;
@@ -68,8 +68,8 @@ export default {
             return {
                 xFrom: this.vertical ? fb.xMiddle : fb.right,
                 yFrom: this.vertical ? fb.bottom : fb.yMiddle,
-                xTo: this.vertical ? tb.xMiddle : tb.left - 5,
-                yTo: this.vertical ? tb.top - 5: tb.yMiddle
+                xTo: this.vertical ? tb.xMiddle : tb.left - 4,
+                yTo: this.vertical ? tb.top - 4: tb.yMiddle
             } 
         },
     },

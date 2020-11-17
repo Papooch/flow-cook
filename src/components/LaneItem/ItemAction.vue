@@ -4,7 +4,7 @@
     class="gk-lane-item gk-action"
     :style="`background-color:${colorLighter}`"
 >
-    {{event.text}}
+    {{item.text}}
 </div>
 </template>
 
@@ -12,8 +12,8 @@
 import { LighterColor } from '../../mixins/colors.js'
 
 export default {
-    name: "LaneAction",
-    props: ["event", "hue"],
+    name: "ItemAction",
+    props: ["item", "hue"],
     data: ()=>({
         //text: "Promíchat"
     }),

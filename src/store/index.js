@@ -85,7 +85,7 @@ export default createStore({
     mutations: {
         setBBox(state, payload){
             // console.log(payload);
-            state.recipe.lanes[payload.laneIndex].events[payload.eventIndex].bBox = payload.bBox;
+            state.recipe.lanes[payload.laneIndex].items[payload.itemIndex].bBox = payload.bBox;
         }
     },
     actions: {
@@ -94,6 +94,10 @@ export default createStore({
         getLaneHue: (state) => (laneIndex) => {
             return state.recipe.lanes[laneIndex].hue;
         },
+        getBBox: (state) => (laneIndex, itemIndex) => {
+            return state.recipe.lanes[laneIndex].items[itemIndex]?.bBox;
+
+        }
     },
     modules: {
     }
