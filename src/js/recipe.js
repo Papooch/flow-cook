@@ -1,12 +1,38 @@
 export default {
     lanes: [
         {
-            hue: 0,
+            hue: 300,
+            items: [
+                {},
+                {
+                    type: "action",
+                    text: "Sypký věci",
+                    bBox: null,
+                    hue: 360
+                },
+                {
+                    type: "action",
+                    text: "Mokrý věci",
+                    bBox: null,
+                    hue: 360
+                },
+                {},
+                {},
+                {
+                    type: "action",
+                    text: "Olej",
+                    bBox: null,
+                    hue: 200
+                },
+            ]
+        },
+        {
+            hue: 360,
             items: [
                 {
                     type: "start",
                     text: "Mísa",
-                    bBox: null
+                    bBox: null,
                 },
                 {
                     type: "add",
@@ -21,7 +47,7 @@ export default {
                 {
                     type: "action",
                     text: "Promíchat",
-                    bBox: null
+                    bBox: null,
                 },
                 {
                     type: "action",
@@ -33,7 +59,7 @@ export default {
                 {
                     type: "action",
                     text: "Nalít část těsta na pánev",
-                    bBox: null
+                    bBox: null,
                 }
             ]
         },
@@ -61,7 +87,7 @@ export default {
                 },
                 {
                     type: "add",
-                    from: 0,
+                    from: 1,
                     text: "Add",
                     bBox: null
                 },

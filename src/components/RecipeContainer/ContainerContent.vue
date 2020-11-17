@@ -1,7 +1,9 @@
 <template>
 <div class="gk-container-content">
     <flow-arrows/>
-    <table>
+    <table
+        :style="gridTemplate"
+    >
         <container-lane
             v-for="(lane, index) of recipe.lanes"
             :key="lane.name"
@@ -25,6 +27,15 @@ export default {
     computed: {
         recipe(){
             return this.$store.state.recipe;
+        },
+        gridTemplate(){
+            let maxLaneLength = Math.max(...this.recipe.lanes.map(l=>l.items.length));
+            let columns = this.$store.state.columnDisplay;
+            let gt = `
+                grid-template-${columns ? 'rows' : 'columns'}: repeat(${maxLaneLength + 1}, auto);
+                ${columns ? 'grid-auto-flow: column;' : ''}
+            `;
+            return gt;
         }
     },
 }
@@ -43,13 +54,26 @@ table,
 table td {
     border: solid rgba(0, 0, 0, 0.158) 1px;
 }
+
+table{
+    display: grid;
+}
+/* table {
+	display: table;
+}
+table tr {
+	display: table-cell;
+}
+table tr td {
+	display: block;
+} */
 </style>
 
 <style scoped>
     .gk-container-content {
+        /*background-color: rgb(209, 209, 209);*/
         position: relative;
-        margin: 0;
-        margin-top: 5em;
+        margin: auto;
         padding: 2em;
         width: fit-content;
     }

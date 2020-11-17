@@ -51,13 +51,13 @@ export default {
             return this.arrow.vertical || false;
         },
         hue(){
-            return this.$store.state.recipe.lanes[this.arrow.from[0]].hue;
+            return this.$store.getters.getItemHue(...this.arrow.from);
         },
         fromBBox(){
-            return this.$store.getters.getBBox(...this.arrow.from);
+            return this.$store.getters.getItemBBox(...this.arrow.from);
         },
         toBBox(){
-             return this.$store.getters.getBBox(...this.arrow.to);
+             return this.$store.getters.getItemBBox(...this.arrow.to);
         },
         fromTo(){
             const fb = this.fromBBox;
@@ -65,11 +65,12 @@ export default {
             if (!fb || !tb) {
                 return false
             }
+            let vertical = this.vertical ^ this.$store.state.columnDisplay
             return {
-                xFrom: this.vertical ? fb.xMiddle : fb.right,
-                yFrom: this.vertical ? fb.bottom : fb.yMiddle,
-                xTo: this.vertical ? tb.xMiddle : tb.left - 4,
-                yTo: this.vertical ? tb.top - 4: tb.yMiddle
+                xFrom: vertical ? fb.xMiddle : fb.right,
+                yFrom: vertical ? fb.bottom : fb.yMiddle,
+                xTo: vertical ? tb.xMiddle : tb.left - 5,
+                yTo: vertical ? tb.top - 5: tb.yMiddle
             } 
         },
     },

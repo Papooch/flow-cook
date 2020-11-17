@@ -16,7 +16,7 @@ import { computeColor } from '../../js/common.js'
 
 export default {
     name: "ItemAdd",
-    props: ["item", "hue"],
+    props: ["item", "itemIndex", "hue"],
     data: ()=>({
         colorFrom: null
     }),
@@ -28,7 +28,7 @@ export default {
         if (this.item?.from != undefined) {
             // console.log("IS FROM " + this.item.from);
             this.colorFrom = computeColor(
-                this.$store.getters.getLaneHue(this.item.from),
+                this.$store.getters.getItemHue(this.item.from, this.itemIndex),
                 100,
                 90
             )

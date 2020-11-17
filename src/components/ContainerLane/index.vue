@@ -1,5 +1,9 @@
 <template>
-    <tr class="gk-lane">
+    <!-- <tr class="gk-lane"> -->
+        <td
+            class="gk-lane-start"
+            :style="style"
+        ></td>
         <lane-item
             v-for="(item, index) of lane.items"
             :key="item"
@@ -9,7 +13,7 @@
             :hue="lane.hue"
             :ref="'gk-item-ref-' + index"
         />
-    </tr>
+    <!-- </tr> -->
 </template>
 
 <script>
@@ -27,12 +31,30 @@ export default {
                 this.$refs[key].recomputeBoundingBox();
             });
         }
+    },
+    computed: {
+        style() {
+            let columns = this.$store.state.columnDisplay;
+            return `grid-${columns ? 'row' : 'column'}-start: 1;`
+        }
+    },
+    updated(){
+            this.recomputeBoundingBoxes()
+    },
+    mounted(){
+        window.addEventListener('resize', this.recomputeBoundingBoxes, true);
+    },
+    unmounted(){
+        window.removeEventListener('resize', this.recomputeBoundingBoxes, true);
     }
 }
 </script>
 
 <style>
-td {
-    padding: .5em;
+
+.gk-lane-start {
+    width: 0;
+    padding: 0;
+    height: 0;
 }
 </style>

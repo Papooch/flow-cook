@@ -1,4 +1,9 @@
 <template>
+    <button
+        @click="$store.commit('toggleDisplayStyle')"
+    >
+        FLIP
+    </button>
     <recipe-container/>
 </template>
 

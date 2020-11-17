@@ -6,19 +6,22 @@
         ref="item"
         v-if="item.type == 'start'"
         :item="item"
-        :hue="hue"
+        :hue="item.hue || hue"
+        :itemIndex="itemIndex"
     />
     <item-action
         ref="item"
         v-if="item.type == 'action'"
         :item="item"
-        :hue="hue"
+        :hue="item.hue || hue"
+        :itemIndex="itemIndex"
     />
     <item-add
         ref="item"
         v-if="item.type == 'add'"
         :item="item"
-        :hue="hue"
+        :hue="item.hue || hue"
+        :itemIndex="itemIndex"
     />
 </td>
 </template>
@@ -47,6 +50,9 @@ export default {
 <style>
 .gk-lane-item-cell {
     padding: .5em 1em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .gk-lane-item {

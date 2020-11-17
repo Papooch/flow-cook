@@ -46,10 +46,5 @@ export const BoundingBox = {
     },
     mounted() {
         this.recomputeBoundingBox();
-        window.addEventListener('resize', this.recomputeBoundingBox, true);
-    },
-    unmounted() {
-        window.removeEventListener('resize', this.recomputeBoundingBox, true);
-
     }
 }
