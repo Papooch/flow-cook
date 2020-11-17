@@ -1,18 +1,22 @@
 <template>
 <div ref="item"
-    class="gk-lane-item gk-start"
-    :style="`background-color:${colorBase}`"
+    class="gk-lane-item gk-ingredients"
+    :style="`
+        background-color:${colorLighter};
+        border-color:${colorBase}
+    `"
 >
-    {{ item.text }}
+    ingredients:<br>
+    {{ item.ingredients }}
 </div>
 </template>
 
 <script>
 import { BaseColor, ComputedHSL, LighterColor } from '../../mixins/Colors.js';
-import { ItemIndexes } from '../../mixins/LaneItemProps.js';
+import { ItemIndexes } from '../../mixins/LaneItemProps.js'
 
 export default {
-    name: "ItemStart",
+    name: "ItemIngredients",
     data: ()=>({
     }),
     mixins: [
@@ -21,13 +25,10 @@ export default {
         BaseColor,
         LighterColor
     ],
+
 }
 </script>
 
 <style>
-.gk-lane-item.gk-start {
-    font-size: 1.2em;
-    padding: .8em 2em;
-    color: white;
-}
+
 </style>

@@ -5,7 +5,7 @@
         :style="gridTemplate"
     >
         <container-lane
-            v-for="(lane, index) of recipe.lanes"
+            v-for="(lane, index) of lanes"
             :key="lane.name"
             :lane="lane"
             :laneIndex="index"
@@ -25,11 +25,11 @@ export default {
         FlowArrows
     },
     computed: {
-        recipe(){
-            return this.$store.state.recipe;
+        lanes(){
+            return this.$store.state.lanes;
         },
         gridTemplate(){
-            let maxLaneLength = Math.max(...this.recipe.lanes.map(l=>l.items.length));
+            let maxLaneLength = Math.max(...this.lanes.map(l=>l.items.length));
             let columns = this.$store.state.columnDisplay;
             let gt = `
                 grid-template-${columns ? 'rows' : 'columns'}: repeat(${maxLaneLength + 1}, auto);

@@ -35,6 +35,6 @@ export default {
 <style scoped>
     .gk-recipe-container {
         width: 100%;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 </style>

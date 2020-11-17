@@ -9,17 +9,20 @@
 </template>
 
 <script>
-import { LighterColor } from '../../mixins/colors.js'
+import { BaseColor, ComputedHSL, LighterColor } from '../../mixins/Colors.js';
+import { ItemIndexes } from '../../mixins/LaneItemProps.js'
 
 export default {
     name: "ItemAction",
-    props: ["item", "hue"],
     data: ()=>({
         //text: "Promíchat"
     }),
     mixins: [
-        LighterColor,
-    ]
+        ItemIndexes,
+        ComputedHSL,
+        BaseColor,
+        LighterColor
+    ],
 }
 </script>
 

@@ -10,7 +10,6 @@
             :item="item"
             :itemIndex="index"
             :laneIndex="laneIndex"
-            :hue="lane.hue"
             :ref="'gk-item-ref-' + index"
         />
     <!-- </tr> -->

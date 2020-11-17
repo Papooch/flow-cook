@@ -6,21 +6,24 @@
         border-color:${colorBase}
     `"
 >
-    +
+    <b>+</b>
 </div>
 </template>
 
 <script>
-import { BaseColor, LighterColor } from '../../mixins/colors.js'
+import { BaseColor, ComputedHSL, LighterColor } from '../../mixins/Colors.js';
+import { ItemIndexes } from '../../mixins/LaneItemProps.js'
+
 import { computeColor } from '../../js/common.js'
 
 export default {
     name: "ItemAdd",
-    props: ["item", "itemIndex", "hue"],
     data: ()=>({
         colorFrom: null
     }),
     mixins: [
+        ItemIndexes,
+        ComputedHSL,
         BaseColor,
         LighterColor
     ],
@@ -42,6 +45,7 @@ export default {
     padding: 0em;
     height: 1.5em;
     width: 1.5em;
+    border-radius: 100px;
     text-align: center;
     border: solid 3px;
 }

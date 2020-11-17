@@ -1,3 +1,11 @@
+/**
+ * Returns css friendly hsl color string
+ * 
+ * @param {Number} h hue, 0-360
+ * @param {Number} s saturation 0-100
+ * @param {Number} l lightness 0-100
+ * @returns {String} strgin in the form of hsl(h, s%, l%)
+ */
 export function computeColor(h = 50, s = 100, l = 0){
     return `hsl(${h}, ${s}%, ${l}%)`;
 }

@@ -1,14 +1,33 @@
-import { reactive } from 'vue'
 
 export const BoundingBox = {
     data: () => ({
         bBox: {}
     }),
     methods: {
+        /**
+         * Recomputes the bounding box of the item and saves it in store
+         * 
+         * the bounding box has these properties:
+         * left, right, top, bottom, xMiddle, yMiddle
+         * 
+         * All values are relative to ContainerContent
+         */
         recomputeBoundingBox(){
             const root = this.$refs.item?.$refs?.item;
             if (!root) return;
-            //console.log(root);
+            
+            /**
+             * 
+             * 
+             * @param {Node} elem the DOM element
+             * @return {Object} the offset object with properties
+             * {
+             *   x: x coordinate of left edge
+             *   y: y coordinate of top edge
+             *   w: width
+             *   h: height
+             * }
+             */
             function offset(elem) {
                 let x = elem.offsetLeft;
                 let y = elem.offsetTop;
