@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { lanes, arrows } from '../js/recipe'
+import { lanes, arrows } from '../js/sampleConvertedRecipe'
 
 export default createStore({
     state: {
@@ -8,6 +8,10 @@ export default createStore({
         arrows: arrows
     },
     mutations: {
+        setRecipe(state, payload){
+            state.lanes = payload.recipe.lanes;
+            state.arrows = payload.recipe.arrows;
+        },
         setBBox(state, payload){
             state.lanes[payload.laneIndex].items[payload.itemIndex].bBox = payload.bBox;
         },

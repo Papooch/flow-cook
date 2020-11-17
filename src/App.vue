@@ -10,11 +10,18 @@
 <script>
 import RecipeContainer from './components/RecipeContainer'
 
+import { convertRecipe } from './js/recipeConverter' 
+
 export default {
     name: 'App',
     components: {
         RecipeContainer
     },
+    created(){
+        let recipe = convertRecipe();
+        console.log(recipe);
+        this.$store.commit('setRecipe', {recipe})
+    }
 }
 </script>
 
