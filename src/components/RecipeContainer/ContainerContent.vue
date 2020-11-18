@@ -48,16 +48,14 @@ export default {
 /** debug */
 table {
     z-index: 100;
-}
-
-table,
-table td {
-    border: solid rgba(0, 0, 0, 0.158) 1px;
-}
-
-table{
     display: grid;
 }
+
+/* table,
+table td {
+    border: solid rgba(0, 0, 0, 0.158) 1px;
+} */
+
 /* table {
 	display: table;
 }
@@ -76,5 +74,6 @@ table tr td {
         margin: auto;
         padding: 2em;
         width: fit-content;
+        height: auto;
     }
 </style>

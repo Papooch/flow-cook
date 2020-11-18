@@ -62,9 +62,9 @@ export default {
 
 .gk-lane-item {
     display: inline-block;
-    background-color: var(--color-default);
     border-radius: 100px;
-    padding: .7em 1em;
+    padding: 1em 1em;
+    z-index: 10;
     filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, .4));
 }
 </style>

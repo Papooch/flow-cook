@@ -30,11 +30,13 @@ export default {
 @import url('../../assets/css/variables.css');
 @import url('../../assets/css/common.css');
 
-/** debug */
 </style>
 <style scoped>
     .gk-recipe-container {
+        position: relative;
+        /* background-color: lightgray; */
         width: 100%;
-        overflow-x: auto;
+        max-height: 100%;
+        overflow: auto;
     }
 </style>

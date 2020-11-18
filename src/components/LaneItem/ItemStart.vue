@@ -1,7 +1,9 @@
 <template>
 <div ref="item"
     class="gk-lane-item gk-start"
-    :style="`background-color:${colorBase}`"
+    :style="`
+        background-color:${colorBase};
+    `"
 >
     {{ item.text }}
 </div>

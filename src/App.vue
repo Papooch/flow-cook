@@ -31,6 +31,7 @@ export default {
 
 
 #app {
+    position: relative;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     /*-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -39,9 +40,18 @@ export default {
     text-align: center;
     width: 100%;
     height: 100%;
+    padding: 2em;
 }
 
-#app * {
+html, body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+* {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 </style>
