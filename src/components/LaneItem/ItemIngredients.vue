@@ -4,7 +4,7 @@
     :style="`
         background-color:${colorLighter};
         border-color:${colorBase};
-        flex-direction:${vertical ? 'row': 'column'}
+        ${gridTemplate}
     `"
 >
     <ingredient-badge
@@ -29,8 +29,13 @@ export default {
     data: ()=>({
     }),
     computed: {
-        vertical(){
-            return this.$store.state.columnDisplay;
+        gridTemplate(){
+            let columns = this.$store.state.columnDisplay;
+            let gt = `
+                grid-template-${columns ? 'columns' :'rows' }: repeat(${3}, auto);
+                grid-auto-flow: ${columns ? 'row' : 'column'};
+            `;
+            return gt;
         }
     },
     mixins: [
@@ -45,7 +50,8 @@ export default {
 
 <style>
 .gk-lane-item.gk-ingredients {
+    border-radius: 2.6em;
     padding: 0;
-    display: flex;
+    display: grid;
 }
 </style>

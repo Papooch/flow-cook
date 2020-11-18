@@ -24,7 +24,7 @@
         :y2="fromTo.yTo + 1"
         :stroke="colorBase"
         stroke-linecap="round"
-        :stroke-dasharray=" dotted ? '0,6' : ''"
+        :stroke-dasharray=" dotted ? '0,10' : ''"
         stroke-width="4" :marker-end="`url(#arrowhead${hue})`"
     />
     {{ fromBBox }}

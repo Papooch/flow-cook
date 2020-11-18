@@ -43,7 +43,7 @@ const timeline = [
     {
         '1': {
             type: "add-ingredients",
-            ingredients: [0,]
+            ingredients: [0, 1]
         }
     },
     {

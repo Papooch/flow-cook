@@ -1,4 +1,4 @@
-import recipe from './sampleRecipe.js';
+import recipe from './sampleRecipe2.js';
 
 console.log(recipe.ingredients);
 console.log(recipe.containers);
