@@ -8,13 +8,13 @@ export const BoundingBox = {
          * Recomputes the bounding box of the item and saves it in store
          * 
          * the bounding box has these properties:
-         * left, right, top, bottom, xMiddle, yMiddle
+         * left, right, top, bottom, cLeft, cRight, cTop, cBottom, xMiddle, yMiddle
          * 
          * All values are relative to ContainerContent
          */
         recomputeBoundingBox(){
-            const root = this.$refs.item?.$refs?.item;
-            if (!root) return;
+            const item = this.$refs.item?.$refs?.item;
+            if (!item) return;
             
             /**
              * 
@@ -44,16 +44,20 @@ export const BoundingBox = {
                 };
             }
             
-            let ro = offset(root);
-            let po = offset(root.offsetParent);
+            let itemBBox = offset(item);
+            let cellBBox = offset(item.offsetParent);
+            // TODO: add left right top bottom of parent as well 
             this.bBox = {
-                left: ro.x,
-                right: ro.x + ro.w,
-                top: ro.y,
-                bottom: ro.y + ro.h,
-                xMiddle: po.x + po.w/2,
-                yMiddle: po.y + po.h/2
-
+                left: itemBBox.x,
+                right: itemBBox.x + itemBBox.w,
+                top: itemBBox.y,
+                bottom: itemBBox.y + itemBBox.h,
+                cLeft: cellBBox.x,
+                cRight: cellBBox.x + cellBBox.w,
+                cTop: cellBBox.y,
+                cBottom: cellBBox.y + cellBBox.h,
+                xMiddle: cellBBox.x + cellBBox.w/2,
+                yMiddle: cellBBox.y + cellBBox.h/2
             }
 
             this.$store.commit('setBBox', {

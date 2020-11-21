@@ -5,13 +5,13 @@ export const lanes = [
             {},
             {
                 type: "ingredients",
-                ingredients: "Sypký věci",
+                ingredients: [ {name: "Sypký věci"}],
                 bBox: null,
                 hue: 240
             },
             {
                 type: "ingredients",
-                ingredients: "Mokrý věci",
+                ingredients: [ {name: "Mokrý věci" }],
                 bBox: null,
                 hue: 240
             },
@@ -19,7 +19,7 @@ export const lanes = [
             {},
             {
                 type: "ingredients",
-                ingredients: "Olej",
+                ingredients: [ {name: "Olej" }],
                 bBox: null,
                 hue: 360
             },
@@ -144,6 +144,20 @@ export const lanes = [
             },
         ]
     },
+]
+
+export const regions = [
+    {
+        topLeft: [1, 7],
+        bottomRight: [3, 11],
+        type: "repeat"
+    },
+    {
+        topLeft: [1, 1],
+        bottomRight: [1, 4],
+        type: "těsto",
+        header: "bottom"
+    }
 ]
 
 export const arrows = [

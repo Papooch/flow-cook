@@ -1,18 +1,16 @@
 <template>
-    <!-- <tr class="gk-lane"> -->
-        <td
-            class="gk-lane-start"
-            :style="style"
-        ></td>
-        <lane-item
-            v-for="(item, index) of lane.items"
-            :key="item"
-            :item="item"
-            :itemIndex="index"
-            :laneIndex="laneIndex"
-            :ref="'gk-item-ref-' + index"
-        />
-    <!-- </tr> -->
+    <td
+        class="gk-lane-start"
+        :style="style"
+    ></td>
+    <lane-item
+        v-for="(item, index) of lane.items"
+        :key="item"
+        :item="item"
+        :itemIndex="index"
+        :laneIndex="laneIndex"
+        :ref="'gk-item-ref-' + index"
+    />
 </template>
 
 <script>
@@ -27,7 +25,7 @@ export default {
     methods: {
         recomputeBoundingBoxes(){
             Object.keys(this.$refs).forEach(key=>{
-                this.$refs[key].recomputeBoundingBox();
+                this.$refs[key]?.recomputeBoundingBox();
             });
         }
     },

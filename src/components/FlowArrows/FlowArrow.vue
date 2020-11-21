@@ -62,7 +62,7 @@ export default {
             const fb = this.fromBBox;
             const tb = this.toBBox;
             if (!fb || !tb) {
-                return false
+                return false;
             }
             let vertical = Math.abs(fb.yMiddle - tb.yMiddle) > Math.abs(fb.xMiddle - tb.xMiddle);
             let inverted = vertical ? fb.bottom > tb.top : fb.right > tb.left;

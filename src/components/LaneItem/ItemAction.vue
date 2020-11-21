@@ -4,7 +4,7 @@
     class="gk-lane-item gk-action"
     :style="`background-color:${colorLighter}`"
 >
-    {{item.text}}
+ {{ item.text }}
 </div>
 </template>
 
@@ -27,5 +27,7 @@ export default {
 </script>
 
 <style>
-
+.gk-action {
+    /* white-space: nowrap; */
+}
 </style>

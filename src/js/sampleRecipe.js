@@ -90,6 +90,11 @@ const timeline = [
         '2': {
             type: "add-from",
             from: 1
+        },
+        'enter': {
+            name: "loop1",
+            type: "repeat",
+            containers: [1, 2, 3]
         }
     },
     {
@@ -106,6 +111,9 @@ const timeline = [
         '3': {
             type: "add-from",
             from: 2
+        },
+        'exit': {
+            name: "loop1"
         }
     },
     {

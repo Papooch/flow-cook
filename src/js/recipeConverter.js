@@ -1,4 +1,4 @@
-import recipe from './sampleRecipe2.js';
+import recipe from './sampleRecipe.js';
 
 console.log(recipe.ingredients);
 console.log(recipe.containers);
@@ -89,15 +89,31 @@ export function convertRecipe(){
     ];
     const hArrows = [];
     const vArrows = [];
+    const namedRegions = {};
     recipe.timeline.forEach((step, eventIndex)=>{
         lanes.forEach(lane=>lane.items.push({}));
-        Object.entries(step).forEach(([laneIndex, event])=>{
-            parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event, eventIndex);
+        Object.entries(step).forEach(([key, event])=>{
+            // if key is number
+            let laneIndex = Number.parseInt(key);
+            if(laneIndex){ 
+                parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event, eventIndex);
+            }
+            if (key == 'enter'){
+                namedRegions[key.name] = {
+                    type: event.type,
+                    topLeft: [Math.min(...event.containers), eventIndex],
+                    bottomRight: [Math.max(...event.containers), eventIndex]
+                }
+            } else if (key == 'exit'){
+                namedRegions[key.name].bottomRight[1] = eventIndex;
+            }
         })
     })
 
 
     return {
-        lanes, arrows: [...hArrows, ...vArrows]
+        lanes,
+        arrows: [...hArrows, ...vArrows],
+        regions: Object.values(namedRegions)
     }
 }

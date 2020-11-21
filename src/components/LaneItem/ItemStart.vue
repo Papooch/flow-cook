@@ -29,7 +29,7 @@ export default {
 <style>
 .gk-lane-item.gk-start {
     font-size: 1.2em;
-    padding: .8em 2em;
+    padding: 1em 2em;
     color: white;
 }
 </style>

@@ -23,6 +23,7 @@ import ItemStart from './ItemStart.vue';
 import ItemAction from './ItemAction';
 import ItemAdd from './ItemAdd';
 import ItemIngredients from './ItemIngredients';
+import ItemEmpty from './ItemEmpty';
 
 export default {
     name: "LaneItem",
@@ -41,7 +42,7 @@ export default {
                     return ItemIngredients;
             
                 default:
-                    return null;
+                    return ItemEmpty;
             }
         }
     },
@@ -54,7 +55,7 @@ export default {
 
 <style>
 .gk-lane-item-cell {
-    padding: .5em 1em;
+    padding: 1em 1em;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -63,7 +64,7 @@ export default {
 .gk-lane-item {
     display: inline-block;
     border-radius: 100px;
-    padding: 1em 1em;
+    padding: 1.2em 1.2em;
     z-index: 10;
     filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, .4));
 }

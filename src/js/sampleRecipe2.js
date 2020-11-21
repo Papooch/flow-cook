@@ -56,9 +56,6 @@ const timeline = [
         '3': {
             type: "start"
         },
-        '4': {
-            type: "start"
-        },
     },
     {
         '1': {
@@ -128,7 +125,10 @@ const timeline = [
         '2': {
             type: "action",
             text: "Vypnout plamen" 
-        }
+        },
+        '4': {
+            type: "start"
+        },
     },
     {
         '1': {
@@ -156,7 +156,6 @@ const timeline = [
             text: "Servírovat" 
         }
     },
-
 ]
 
 export default {

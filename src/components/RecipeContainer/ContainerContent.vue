@@ -1,7 +1,8 @@
 <template>
 <div class="gk-container-content">
+    <rectangle-regions/>
     <flow-arrows/>
-    <table
+    <table class="gk-lane-container"
         :style="gridTemplate"
     >
         <container-lane
@@ -17,12 +18,14 @@
 <script>
 import ContainerLane from '../ContainerLane';
 import FlowArrows from '../FlowArrows';
+import RectangleRegions from '../RectangleRegions';
 
 export default {
     name: 'ContainerContent',
     components: {
         ContainerLane,
-        FlowArrows
+        FlowArrows,
+        RectangleRegions
     },
     computed: {
         lanes(){
@@ -46,9 +49,13 @@ export default {
 @import url('../../assets/css/common.css');
 
 /** debug */
-table {
-    z-index: 100;
+.gk-lane-container {
+    z-index: 30;
     display: grid;
+}
+
+.gk-lane-container > * {
+    z-index: 30;
 }
 
 /* table,
@@ -67,7 +74,7 @@ table tr td {
 } */
 </style>
 
-<style scoped>
+<style>
     .gk-container-content {
         /*background-color: rgb(209, 209, 209);*/
         position: relative;

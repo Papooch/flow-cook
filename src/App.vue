@@ -1,5 +1,10 @@
 <template>
     <button
+        @click="getRecipe"
+    >
+        Get recipe
+    </button>
+    <button
         @click="$store.commit('toggleDisplayStyle')"
     >
         FLIP
@@ -17,11 +22,14 @@ export default {
     components: {
         RecipeContainer
     },
-    created(){
-        let recipe = convertRecipe();
-        console.log(recipe);
-        this.$store.commit('setRecipe', {recipe})
-    }
+    methods: {
+        getRecipe(){
+            let recipe = convertRecipe();
+            console.log(recipe);
+            this.$store.commit('setRecipe', {recipe})
+        }
+    },
+
 }
 </script>
 
@@ -33,14 +41,15 @@ export default {
 #app {
     position: relative;
     font-family: Avenir, Helvetica, Arial, sans-serif;
-    /*-webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    margin-top: 60px; */
+
     text-align: center;
     width: 100%;
     height: 100%;
     padding: 2em;
+    color: hsl(0, 0%, 15%);
+    background-color: hsl(0, 0%, 15%);
 }
 
 html, body {
