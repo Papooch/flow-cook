@@ -1,0 +1,144 @@
+{
+    "portions": 4,
+    "ingredients": [
+        {
+            "name": "Mouka polohrubá",
+            "amount": 100,
+            "unit": "g"
+        },
+        {
+            "name": "Mouka hladká",
+            "amount": 100,
+            "unit": "g"
+        },
+        {
+            "name": "Mlíko",
+            "amount": 150,
+            "unit": "ml"
+        },
+        {
+            "name": "Vajíčko",
+            "amount": 1,
+            "unit": "ks"
+        },
+        {
+            "name": "Olej"
+        }
+    ],
+    "containers": [
+        {
+            "name": "Mísa",
+            "hue": 240
+        },
+        {
+            "name": "Pánev",
+            "hue": 360
+        },
+        {
+            "name": "Talíř",
+            "hue": 125,
+            "lightness": 40
+        }
+    ],
+    "timeline": [
+        {
+            "1": {
+                "type": "start"
+            }
+        },
+        {
+            "1": {
+                "type": "add-ingredients",
+                "ingredients": [
+                    0,
+                    1
+                ]
+            }
+        },
+        {
+            "1": {
+                "type": "add-ingredients",
+                "ingredients": [
+                    2,
+                    3
+                ]
+            }
+        },
+        {
+            "1": {
+                "type": "action",
+                "text": "promíchat"
+            }
+        },
+        {
+            "1": {
+                "type": "action",
+                "text": "nechat odležet"
+            },
+            "2": {
+                "type": "start"
+            },
+            "3": {
+                "type": "start"
+            }
+        },
+        {
+            "2": {
+                "type": "add-ingredients",
+                "ingredients": [
+                    4
+                ]
+            }
+        },
+        {
+            "2": {
+                "type": "action",
+                "text": "rozehřát"
+            }
+        },
+        {
+            "1": {
+                "type": "action",
+                "text": "nalít část těsta na pánev"
+            },
+            "2": {
+                "type": "add-from",
+                "from": 1
+            },
+            "enter": {
+                "name": "loop1",
+                "type": "repeat",
+                "containers": [
+                    1,
+                    2,
+                    3
+                ]
+            }
+        },
+        {
+            "2": {
+                "type": "action",
+                "text": "osmažit z jedné a z druhé strany"
+            }
+        },
+        {
+            "2": {
+                "type": "action",
+                "text": "přendat na talíř"
+            },
+            "3": {
+                "type": "add-from",
+                "from": 2
+            },
+            "exit": {
+                "name": "loop1"
+            }
+        },
+        {
+            "3": {
+                "type": "action",
+                "text": "servírovat"
+            }
+        }
+    ]
+}

@@ -1,6 +1,8 @@
 import { createStore } from 'vuex'
 import { lanes, arrows, regions, portions } from '../js/sampleConvertedRecipe'
 
+import { convertRecipe } from '../js/recipeConverter.js'
+
 export default createStore({
     state: {
         columnDisplay: false,
@@ -30,6 +32,13 @@ export default createStore({
         }
     },
     actions: {
+        fetchRecipe(context, recipe){
+            fetch(`/recipes/${recipe}.json`)
+                .then(d=>d.json())
+                .then(recipe=>{
+                    context.commit('setRecipe', {recipe: convertRecipe(recipe)})
+                });  
+        }
     },
     getters: {
         getPortions: (state) =>{

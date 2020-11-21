@@ -27,6 +27,10 @@ export default {
             Object.keys(this.$refs).forEach(key=>{
                 this.$refs[key]?.recomputeBoundingBox();
             });
+            setTimeout(
+                this.recomputeBoundingBoxes,
+                500
+            )
         }
     },
     computed: {

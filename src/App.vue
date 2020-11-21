@@ -3,15 +3,16 @@
         style="color:white;"
     >
         <button
-            @click="getRecipe"
-        >
-            Get recipe
-        </button>
-        <button
             @click="$store.commit('toggleDisplayStyle')"
         >
             FLIP
         </button>
+        <select
+            @change="getRecipe($event.target.value)"
+        >
+            <option value="palacinky" selected>Palačinky</option>
+            <option value="spagety">Špagety</option>
+        </select>
         <label>
             Portions:
             <input ref="portions" type="number" value="0" min="1" @change="setPortions"/>
@@ -22,7 +23,6 @@
 
 <script>
 import RecipeContainer from './components/RecipeContainer'
-
 import { convertRecipe } from './js/recipeConverter' 
 
 export default {
@@ -31,10 +31,8 @@ export default {
         RecipeContainer
     },
     methods: {
-        getRecipe(){
-            let recipe = convertRecipe();
-            console.log(recipe);
-            this.$store.commit('setRecipe', {recipe});
+        getRecipe(rec){
+            this.$store.dispatch('fetchRecipe', rec);
             this.$refs.portions && (this.$refs.portions.value = this.$store.state.basePortions);
         },
         setPortions(){
@@ -45,7 +43,7 @@ export default {
         }
     },
     created() {
-        this.getRecipe();
+        this.getRecipe('palacinky');
         this.$nextTick(()=>{
             this.$refs.portions.value = this.$store.state.basePortions
         })

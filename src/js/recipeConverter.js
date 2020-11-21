@@ -1,9 +1,3 @@
-import recipe from './sampleRecipe2.js';
-
-console.log(recipe.ingredients);
-console.log(recipe.containers);
-console.log(recipe.timeline);
-
 function addVerticalArrow(fromLaneIndex, toLaneIndex, eventIndex, vArrows){
     vArrows.push({
         from: [fromLaneIndex, eventIndex],
@@ -77,7 +71,7 @@ function parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event, eventInde
     }
 }
 
-export function convertRecipe(){
+export function convertRecipe(recipe){
     const lanes = [
         {hue: 360, saturation: 0, lightness: 50, items: []},
         ...(recipe.containers.map(c=>({

@@ -1,4 +1,4 @@
-const portions = 4;
+const portions = 2;
 
 const ingredients = [
     {

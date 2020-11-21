@@ -18,10 +18,10 @@
 
     <line
         v-if="fromTo"
-        :x1="fromTo.xFrom + 1"
-        :y1="fromTo.yFrom + 1"
-        :x2="fromTo.xTo + 1"
-        :y2="fromTo.yTo + 1"
+        :x1="fromTo.xFrom"
+        :y1="fromTo.yFrom"
+        :x2="fromTo.xTo"
+        :y2="fromTo.yTo"
         :stroke="colorBase"
         stroke-linecap="round"
         :stroke-dasharray=" dotted ? '0,10' : ''"
