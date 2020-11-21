@@ -1,11 +1,11 @@
 <template>
 <div
     v-if="style"
-    class="gk-region gk-lane-item"
+    class="gk-region gk-drop-shadow"
     :style="style"
 >
     <div
-        class="gk-region-header gk-lane-item"
+        class="gk-region-header gk-drop-shadow"
         :style="headerStyle"
     >
         {{ region.type }}
@@ -87,6 +87,7 @@ export default {
     background-color:  hsl(0, 0%, 40%);
     max-width: 80%;
     color: white;
+    border-radius: 2.5em;
 }
 
 </style>

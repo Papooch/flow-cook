@@ -1,14 +1,22 @@
 <template>
-    <button
-        @click="getRecipe"
+    <div
+        style="color:white;"
     >
-        Get recipe
-    </button>
-    <button
-        @click="$store.commit('toggleDisplayStyle')"
-    >
-        FLIP
-    </button>
+        <button
+            @click="getRecipe"
+        >
+            Get recipe
+        </button>
+        <button
+            @click="$store.commit('toggleDisplayStyle')"
+        >
+            FLIP
+        </button>
+        <label>
+            Portions:
+            <input ref="portions" type="number" value="0" min="1" @change="setPortions"/>
+        </label>
+    </div>
     <recipe-container/>
 </template>
 
@@ -26,9 +34,22 @@ export default {
         getRecipe(){
             let recipe = convertRecipe();
             console.log(recipe);
-            this.$store.commit('setRecipe', {recipe})
+            this.$store.commit('setRecipe', {recipe});
+            this.$refs.portions && (this.$refs.portions.value = this.$store.state.basePortions);
+        },
+        setPortions(){
+            this.$store.commit("setPortions", this.$refs.portions.value)
+        },
+        prt(){
+            console.log(this.$refs.ifr);
         }
     },
+    created() {
+        this.getRecipe();
+        this.$nextTick(()=>{
+            this.$refs.portions.value = this.$store.state.basePortions
+        })
+    }
 
 }
 </script>
@@ -62,5 +83,9 @@ html, body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
+
+.gk-drop-shadow {
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, .4));
 }
 </style>

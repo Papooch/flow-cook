@@ -1,24 +1,40 @@
+const portions = 4;
+
 const ingredients = [
     {
-        name: "Voda"
+        name: "Voda",
+        amount: 1,
+        unit: "l"
     },
     {
-        name: "Špagety"
+        name: "Špagety",
+        amount: 200,
+        unit: "g"
     },
     {
-        name: "Protlak"
+        name: "Protlak",
+        amount: 150,
+        unit: "g"
     },
     {
-        name: "Cukr"
+        name: "Cukr",
+        amount: 2,
+        unit: "tsp"
     },
     {
-        name: "Sůl"
+        name: "Sůl",
+        amount: 1,
+        unit: "tsp"
     },
     {
-        name: "Bylinky"
+        name: "Bylinky",
+        amount: 3,
+        unit: "tsp"
     },
     {
-        name: "Sýr"
+        name: "Sýr",
+        amount: '50',
+        unit: 'g'
     },
 
 ]
@@ -162,4 +178,5 @@ export default {
     ingredients,
     containers,
     timeline,
+    portions,
 }

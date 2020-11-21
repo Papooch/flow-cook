@@ -1,18 +1,28 @@
+const portions = 4;
+
 const ingredients = [
     {
-        name: "Mouka polohrubá"
+        name: "Mouka polohrubá",
+        amount: 100,
+        unit: 'g'
     },
     {
-        name: "Mouka hladká"
+        name: "Mouka hladká",
+        amount: 100,
+        unit: 'g'
     },
     {
-        name: "Mlíko"
+        name: "Mlíko",
+        amount: 150,
+        unit: 'ml'
     },
     {
-        name: "Vajíčko"
+        name: "Vajíčko",
+        amount: 1,
+        unit: 'ks'
     },
     {
-        name: "Olej"
+        name: "Olej",
     },
 ]
 
@@ -129,4 +139,5 @@ export default {
     ingredients,
     containers,
     timeline,
+    portions,
 }

@@ -1,4 +1,4 @@
-import recipe from './sampleRecipe.js';
+import recipe from './sampleRecipe2.js';
 
 console.log(recipe.ingredients);
 console.log(recipe.containers);
@@ -114,6 +114,7 @@ export function convertRecipe(){
     return {
         lanes,
         arrows: [...hArrows, ...vArrows],
-        regions: Object.values(namedRegions)
+        regions: Object.values(namedRegions),
+        portions: recipe.portions
     }
 }

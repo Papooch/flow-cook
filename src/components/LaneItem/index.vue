@@ -9,6 +9,7 @@
         :item="item"
         :itemIndex="itemIndex"
         :laneIndex="laneIndex"
+        class="gk-drop-shadow"
     />
 </td>
 </template>
@@ -66,6 +67,5 @@ export default {
     border-radius: 100px;
     padding: 1.2em 1.2em;
     z-index: 10;
-    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, .4));
 }
 </style>
