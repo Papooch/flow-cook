@@ -17,6 +17,24 @@ let pluralizedUnits = {
         one: "gram",
         few: "gramy",
         many: "gramů",
+    },
+    "ks": {
+        none: "kusů",
+        one: "kus",
+        few: "kusy",
+        many: "kusů",
+    },
+    "plátek": {
+        none: "plátků",
+        one: "plátek",
+        few: "plátky",
+        many: "plátků",
+    },
+    "stroužek": {
+        none: "stroužků",
+        one: "stroužek",
+        few: "stroužky",
+        many: "stroužků",
     }
 }
 

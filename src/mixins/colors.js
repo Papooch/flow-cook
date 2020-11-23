@@ -29,7 +29,7 @@ export const BaseColor = {
          * Returns the color (hsl) associated with this item in store
          */
         colorBase(){
-            return computeColor(this.hue, this.saturation || 100, this.lightness || 50);
+            return computeColor(this.hue, this.saturation, this.lightness);
         }
     }
 }
@@ -40,7 +40,7 @@ export const LightColor = {
          * Returns the color associated with this item in store with lightness of 70
          */
         colorLight(){
-            return computeColor(this.hue, this.saturation || 100, 70);
+            return computeColor(this.hue, this.saturation, 70);
         }
     }
 }
@@ -51,7 +51,7 @@ export const LighterColor = {
          * Returns the color associated with this item in store with lightness of 92
          */
         colorLighter(){
-            return computeColor(this.hue, this.saturation || 100, 92);
+            return computeColor(this.hue, this.saturation, 92);
         }
     }
 }

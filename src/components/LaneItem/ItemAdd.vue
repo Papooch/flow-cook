@@ -32,7 +32,7 @@ export default {
             // console.log("IS FROM " + this.item.from);
             this.colorFrom = computeColor(
                 this.$store.getters.getItemHue(this.item.from, this.itemIndex),
-                100,
+                this.$store.getters.getItemSaturation(this.item.from, this.itemIndex),
                 90
             )
         }

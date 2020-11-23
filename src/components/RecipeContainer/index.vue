@@ -38,5 +38,6 @@ export default {
         width: 100%;
         max-height: 100%;
         overflow: auto;
+        font-size: .8em;
     }
 </style>

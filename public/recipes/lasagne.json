@@ -1,0 +1,181 @@
+{
+    "portions": 6,
+    "ingredients": [
+        {
+            "name": "Cibule",
+            "amount": 1,
+            "unit": "ks"
+        },        
+        {
+            "name": "Mrkev",
+            "amount": 3,
+            "unit": "ks"
+        },
+        {
+            "name": "Máslo",
+            "amount": 50,
+            "unit": "g"
+        },
+        {
+            "name": "Olej"
+        },
+        {
+            "name": "Mleté mase",
+            "amount": 0.5,
+            "unit": "kg"
+        },
+        {
+            "name": "Červené víno",
+            "amount": 200,
+            "unit": "ml"
+        },
+        {
+            "name": "Sůl"
+        },
+        {
+            "name": "Pepř"
+        },
+        {
+            "name": "Bylinky"
+        },
+        {
+            "name": "Rajčata",
+            "amount": 400,
+            "unit": "g"
+        },
+        {
+            "name": "Protlak",
+            "amount": 400,
+            "unit": "g"
+        },
+        {
+            "name": "Sýr",
+            "amount": 100,
+            "unit": "g"
+        }
+
+
+    ],
+    "containers": [
+        {
+            "name": "Pánev",
+            "hue": 360
+        },
+        {
+            "name": "Rendlík",
+            "hue": 50,
+            "lightness": 40
+        },
+        {
+            "name": "Prkýnko",
+            "hue": 200
+        },
+        {
+            "name": "Zapékací mísa",
+            "hue": 125,
+            "lightness": 40
+        },
+        {
+            "name": "Trouba",
+            "hue": 300,
+            "lightness": 30
+        }
+    ],
+    "timeline": [
+        {
+            "1": {
+                "type": "start"
+            },
+            "2": {
+                "type": "start"
+            },
+            "3": {
+                "type": "start"
+            },
+            "4": {
+                "type": "start"
+            },
+            "5": {
+                "type": "start"
+            }
+        },
+        {
+            "1": {
+                "type": "add-ingredients",
+                "ingredients": [2, 3]
+            },
+            "enter": {
+                "name": "ragu",
+                "type": "Ragú",
+                "header": "bottom",
+                "containers": [1]
+            }
+        },
+        {
+            "1": {
+                "type": "add-ingredients",
+                "ingredients": [0, 1],
+                "prepare": "Nakrájet najemno"
+            }
+        },
+        {
+            "1": {
+                "type": "action",
+                "text": "orestovat do změknutí"
+            }
+        },
+        {
+            "1": {
+                "type": "add-ingredients",
+                "ingredients": [4]
+            }
+        },
+        {
+            "1": {
+                "type": "action",
+                "text": "promíchat a restovat"
+            }
+        },
+        {
+            "1": {
+                "type": "add-ingredients",
+                "ingredients": [5,6,7,8]
+            }
+        },
+        {
+            "1": {
+                "type": "action",
+                "text": "zakrýt pokličkou a vařit 30 minut"
+            }
+        },
+        {
+            "1": {
+                "type": "add-ingredients",
+                "ingredients": [9],
+                "prepare": "Nakrájet na kostičky"
+            }
+        },
+        {
+            "1": {
+                "type": "add-ingredients",
+                "ingredients": [10]
+            }
+        },
+        {
+            "1": {
+                "type": "action",
+                "text": "Pod pokličnou vařit dalších 30 minut"
+            },
+            "exit": {
+                "name": "ragu"
+            }
+        },
+        {
+            "3": {
+                "type": "add-ingredients",
+                "ingredients": [11],
+                "prepare": "nastrouhat"
+            }
+        }
+    ]
+}

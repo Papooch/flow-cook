@@ -5,6 +5,10 @@ function addVerticalArrow(fromLaneIndex, toLaneIndex, eventIndex, vArrows){
     })
 }
 
+function getEventIndex(lanes){
+    return lanes[0].items.length - 1;
+}
+
 function addHorizontalArrow(lane, laneIndex, toIndex, hArrows){
     function findLastOccupied(lane){
         for(let i = toIndex - 1; i >= 0; i--){
@@ -25,7 +29,8 @@ function addHorizontalArrow(lane, laneIndex, toIndex, hArrows){
     })
 }
 
-function parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event, eventIndex){
+function parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event){
+    let eventIndex = getEventIndex(lanes);
     switch (event.type){
         case 'start':
             lanes[laneIndex].items[eventIndex] = {
@@ -35,14 +40,31 @@ function parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event, eventInde
             break;
 
         case 'add-ingredients':
-            lanes[laneIndex].items[eventIndex] = {
-                type: 'add'
-            };
+            if(event.prepare && !lanes[0].items[eventIndex - 1].type){
+                eventIndex -= 1;
+            }
             lanes[0].items[eventIndex] = {
                 type: 'ingredients',
                 ingredients: event.ingredients.map(i=>recipe.ingredients[i]),
-                hue: recipe.containers[laneIndex-1].hue
+                hue: recipe.containers[laneIndex-1].hue,
+                saturation: recipe.containers[laneIndex-1].saturation || 100,
+                lightness: recipe.containers[laneIndex-1].lightness || 50
             }
+            if(event.prepare){
+                eventIndex += 1;
+                lanes.forEach(lane=>lane.items.push({}));
+                lanes[0].items[eventIndex] = {
+                    type: 'action',
+                    text: event.prepare,
+                    hue: recipe.containers[laneIndex-1].hue,
+                    saturation: recipe.containers[laneIndex-1].saturation || 100,
+                    lightness: recipe.containers[laneIndex-1].lightness || 50
+                }
+                addHorizontalArrow(lanes[0], 0, eventIndex, hArrows);
+            }
+            lanes[laneIndex].items[eventIndex] = {
+                type: 'add'
+            };
             console.log("add ingredients");
             addHorizontalArrow(lanes[laneIndex], laneIndex, eventIndex, hArrows);
             addVerticalArrow(0, laneIndex, eventIndex, vArrows);
@@ -73,7 +95,7 @@ function parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event, eventInde
 
 export function convertRecipe(recipe){
     const lanes = [
-        {hue: 360, saturation: 0, lightness: 50, items: []},
+        {hue: 100, saturation: 1, lightness: 50, items: []},
         ...(recipe.containers.map(c=>({
             hue: c.hue,
             saturation: c.saturation,
@@ -84,17 +106,19 @@ export function convertRecipe(recipe){
     const hArrows = [];
     const vArrows = [];
     const namedRegions = {};
-    recipe.timeline.forEach((step, eventIndex)=>{
+    recipe.timeline.forEach((step)=>{
         lanes.forEach(lane=>lane.items.push({}));
+        let eventIndex = getEventIndex(lanes);
         Object.entries(step).forEach(([key, event])=>{
             // if key is number
             let laneIndex = Number.parseInt(key);
-            if(laneIndex){ 
-                parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event, eventIndex);
+            if(laneIndex >= 0){ 
+                parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event);
             }
             if (key == 'enter'){
                 namedRegions[key.name] = {
                     type: event.type,
+                    header: event.header,
                     topLeft: [Math.min(...event.containers), eventIndex],
                     bottomRight: [Math.max(...event.containers), eventIndex]
                 }

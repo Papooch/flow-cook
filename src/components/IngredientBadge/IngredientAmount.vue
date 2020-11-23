@@ -21,6 +21,7 @@ export default {
             return this.$store.getters.getPortionsMultiplier;
         },
         amountText(){
+            if (!this.unit) return this.amount
             let na = normaliseAmount(this.amount, this.unit, this.portionsMultiplier);
             return na.amount + "\u00a0" + na.unit;
         }
@@ -35,7 +36,7 @@ export default {
     white-space: nowrap;
     border-radius: 1em;
     padding: .3em .5em;
-    left: 40%;
+    right: -.8em;
     top: -.7em;
 }
 </style>

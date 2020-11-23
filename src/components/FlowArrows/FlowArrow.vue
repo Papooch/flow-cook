@@ -2,7 +2,7 @@
 <g class="gk-arrow">
     <defs>
         <marker
-            :id="`arrowhead${hue}`"
+            :id="`arrowhead${hue}-${saturation}-${lightness}`"
             markerWidth="10"
             markerHeight="7"
             refX="3.5"
@@ -25,9 +25,8 @@
         :stroke="colorBase"
         stroke-linecap="round"
         :stroke-dasharray=" dotted ? '0,10' : ''"
-        stroke-width="4" :marker-end="`url(#arrowhead${hue})`"
+        stroke-width="4" :marker-end="`url(#arrowhead${hue}-${saturation}-${lightness})`"
     />
-    {{ fromBBox }}
 </g>
 </template>
 

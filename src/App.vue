@@ -10,8 +10,9 @@
         <select
             @change="getRecipe($event.target.value)"
         >
-            <option value="palacinky" selected>Palačinky</option>
+            <option value="palacinky">Palačinky</option>
             <option value="spagety">Špagety</option>
+            <option value="lasagne" selected>Lasagne</option>
         </select>
         <label>
             Portions:
@@ -33,7 +34,9 @@ export default {
     methods: {
         getRecipe(rec){
             this.$store.dispatch('fetchRecipe', rec);
-            this.$refs.portions && (this.$refs.portions.value = this.$store.state.basePortions);
+            setTimeout(() => {
+                this.$refs.portions && (this.$refs.portions.value = this.$store.state.basePortions);
+            }, 1000);
         },
         setPortions(){
             this.$store.commit("setPortions", this.$refs.portions.value)
@@ -43,10 +46,10 @@ export default {
         }
     },
     created() {
-        this.getRecipe('palacinky');
-        this.$nextTick(()=>{
-            this.$refs.portions.value = this.$store.state.basePortions
-        })
+        this.getRecipe('lasagne');
+        setTimeout(() => {
+            this.$refs.portions && (this.$refs.portions.value = this.$store.state.basePortions);
+        }, 1000);
     }
 
 }

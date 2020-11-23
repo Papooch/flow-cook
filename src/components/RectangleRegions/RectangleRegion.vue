@@ -40,7 +40,6 @@ export default {
                 right: this.bottomRightBBox.cRight,
                 bottom: this.bottomRightBBox.cBottom
             }
-            console.log(cb);
             let style =`
                 left: ${cb.left}px;
                 top: ${cb.top}px;
@@ -48,7 +47,6 @@ export default {
                 height: ${cb.bottom - cb.top}px;
                 flex-direction: ${this.vertical ? 'row' : 'column'};
                 `
-            console.log(style);
             return style
         },
         isHeaderOnBottom(){
