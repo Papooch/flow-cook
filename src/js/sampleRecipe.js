@@ -103,7 +103,7 @@ const timeline = [
         },
         'enter': {
             name: "loop1",
-            type: "repeat",
+            type: "Opakovat dokud zbývá těsto",
             containers: [1, 2, 3]
         }
     },

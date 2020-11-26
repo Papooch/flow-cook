@@ -40,8 +40,12 @@ function parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event){
             break;
 
         case 'add-ingredients':
-            if(event.prepare && !lanes[0].items[eventIndex - 1].type){
-                eventIndex -= 1;
+            if(event.prepare){
+                if(!lanes[0].items[eventIndex - 1].type){
+                    eventIndex -= 1;
+                } else {
+                    lanes.forEach(lane=>lane.items.push({}));
+                }
             }
             lanes[0].items[eventIndex] = {
                 type: 'ingredients',
@@ -52,7 +56,6 @@ function parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event){
             }
             if(event.prepare){
                 eventIndex += 1;
-                lanes.forEach(lane=>lane.items.push({}));
                 lanes[0].items[eventIndex] = {
                     type: 'action',
                     text: event.prepare,
@@ -116,17 +119,19 @@ export function convertRecipe(recipe){
                 parseEvent(lanes, hArrows, vArrows, recipe, laneIndex, event);
             }
             if (key == 'enter'){
-                namedRegions[key.name] = {
+                namedRegions[event.name] = {
                     type: event.type,
                     header: event.header,
                     topLeft: [Math.min(...event.containers), eventIndex],
                     bottomRight: [Math.max(...event.containers), eventIndex]
                 }
             } else if (key == 'exit'){
-                namedRegions[key.name].bottomRight[1] = eventIndex;
+                namedRegions[event.name].bottomRight[1] = eventIndex;
             }
         })
     })
+
+    console.log(namedRegions);
 
 
     return {
