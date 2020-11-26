@@ -33,7 +33,7 @@ export default createStore({
     },
     actions: {
         fetchRecipe(context, recipe){
-            fetch(`/recipes/${recipe}.json`)
+            fetch(`recipes/${recipe}.json`)
                 .then(d=>d.json())
                 .then(recipe=>{
                     context.commit('setRecipe', {recipe: convertRecipe(recipe)})
