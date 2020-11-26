@@ -1,5 +1,5 @@
 <template>
-<td
+<div
     class="gk-lane-item-cell"
 >
     <component
@@ -11,7 +11,7 @@
         :laneIndex="laneIndex"
         class="gk-drop-shadow"
     />
-</td>
+</div>
 </template>
 
 <script>
@@ -56,6 +56,7 @@ export default {
 
 <style>
 .gk-lane-item-cell {
+    position: relative;
     padding: 1em 1em;
     display: flex;
     justify-content: space-around;

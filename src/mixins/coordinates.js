@@ -37,7 +37,7 @@ export const BoundingBox = {
                     elem = elem.offsetParent
                     x += elem.offsetLeft;
                     y += elem.offsetTop;
-                    if(elem.nodeName == 'TABLE') break;
+                    if(elem.classList.contains('gk-container-content')) break;
                 }
                 return { 
                     x, y, w, h

@@ -2,7 +2,7 @@
 <div class="gk-container-content">
     <rectangle-regions/>
     <flow-arrows/>
-    <table class="gk-lane-container"
+    <div class="gk-lane-container"
         :style="gridTemplate"
     >
         <container-lane
@@ -11,7 +11,7 @@
             :lane="lane"
             :laneIndex="index"
         />
-    </table>
+    </div>
 </div>
 </template>
 

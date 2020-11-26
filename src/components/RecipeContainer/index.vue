@@ -33,7 +33,7 @@ export default {
 </style>
 <style scoped>
     .gk-recipe-container {
-        position: relative;
+        position: absolute;;
         /* background-color: lightgray; */
         width: 100%;
         max-height: 100%;

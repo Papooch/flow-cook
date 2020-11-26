@@ -1,8 +1,8 @@
 <template>
-    <td
+    <div
         class="gk-lane-start"
         :style="style"
-    ></td>
+    ></div>
     <lane-item
         v-for="(item, index) of lane.items"
         :key="item"
