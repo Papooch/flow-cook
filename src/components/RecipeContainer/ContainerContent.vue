@@ -78,7 +78,6 @@ table tr td {
     .gk-container-content {
         /*background-color: rgb(209, 209, 209);*/
         position: relative;
-        margin: auto;
         padding: 2em;
         width: fit-content;
         height: auto;

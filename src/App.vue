@@ -10,9 +10,9 @@
         <select
             @change="getRecipe($event.target.value)"
         >
-            <option value="palacinky">Palačinky</option>
+            <option value="palacinky" selected>Palačinky</option>
             <option value="spagety">Špagety</option>
-            <option value="lasagne" selected>Lasagne</option>
+            <option value="lasagne">Lasagne</option>
         </select>
         <label>
             Portions:
@@ -46,7 +46,7 @@ export default {
         }
     },
     created() {
-        this.getRecipe('lasagne');
+        this.getRecipe('palacinky');
         setTimeout(() => {
             this.$refs.portions && (this.$refs.portions.value = this.$store.state.basePortions);
         }, 1000);
